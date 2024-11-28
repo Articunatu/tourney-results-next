@@ -1,5 +1,5 @@
 import { Button } from "@chakra-ui/react";
-import "./tr-button.css";
+import "./tr-button.scss";
 
 const TrButton: React.FC = () => {
   return (
