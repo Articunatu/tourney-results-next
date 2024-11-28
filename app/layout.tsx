@@ -1,12 +1,19 @@
-import { Provider } from "@/chakra_ui/provider"
+import { Provider } from "../chakra_ui/provider"
+import { ApolloWrapper } from "./services/providers/apollo-wrapper";
 
-export default function RootLayout(props: { children: React.ReactNode }) {
-  const { children } = props
+export default function RootLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
   return (
     <html suppressHydrationWarning>
       <body>
-        <Provider>{children}</Provider>
+        <Provider>
+          {children}
+          <ApolloWrapper>{children}</ApolloWrapper>
+        </Provider>
       </body>
     </html>
-  )
+  );
 }

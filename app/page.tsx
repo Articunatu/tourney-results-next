@@ -1,6 +1,6 @@
 "use client";
 
-import TrButton from "@/components/custom/tr-button"; 
+import TrButton from "../app/components/custom/tr-button"; 
 import { HStack } from "@chakra-ui/react"; 
 import React from "react";
 
