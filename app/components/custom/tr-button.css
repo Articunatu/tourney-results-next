@@ -1,0 +1,14 @@
+
+Button.gradient-button {
+    background: linear-gradient(to right, #63b3ed, #3182ce); 
+  }
+  
+Button.gradient-button:hover {
+    background: linear-gradient(to right, #4299e1, #2b6cb0); 
+  }
+  
+Button.gradient-button:active {
+    background: linear-gradient(to right, #2b6cb0, #2c5282);
+  }
+  
+  
