@@ -1,7 +1,7 @@
 "use client";
 
 import { useQuery } from "@apollo/client";
-import { GET_TOURNAMENT } from "../services/graphql/queries";
+import { GET_TOURNAMENT } from "../services/api/startgg/get-tournament-by-id";
 
 export default function Tournament({ slug }: { slug: string }) {
   const { data, loading, error } = useQuery(GET_TOURNAMENT, {
