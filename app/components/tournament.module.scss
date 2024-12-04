@@ -1,0 +1,35 @@
+.tournament-container {
+  padding: 20px;
+  background-color: $chakra-colors-gray-50;
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  margin: 20px auto;
+  max-width: 800px;
+
+  .tournament-title {
+    font-size: 2rem;
+    color: $chakra-colors-teal-600;
+    text-align: center;
+    margin-bottom: 20px;
+  }
+
+  .tournament-table {
+    border: 1px solid $chakra-colors-gray-200;
+    border-radius: 10px;
+
+    [role="row"]:hover {
+      background-color: $chakra-colors-gray-100;
+      transition: background-color 0.2s ease;
+    }
+
+    [role="cell"] {
+      padding: 10px 15px;
+      text-align: left;
+    }
+
+    [role="columnheader"] {
+      font-weight: bold;
+      text-transform: uppercase;
+    }
+  }
+}
