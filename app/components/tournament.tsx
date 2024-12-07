@@ -1,9 +1,7 @@
-"use client";
-
-import { useQuery } from "@apollo/client";
+import { Box, Spinner, Text } from "@chakra-ui/react";
+import TrTable from "./custom/tr-table";
 import { GET_RESULTS_BY_TOURNAMENT_ID } from "../services/api/startgg/get-results-by-tournament-id";
-import { Table, Box, Spinner, Text } from "@chakra-ui/react";
-import "./tournament.module.scss";
+import { useQuery } from "@apollo/client";
 
 export default function Tournament({ slug }: { slug: string }) {
   const { data, loading, error } = useQuery(GET_RESULTS_BY_TOURNAMENT_ID, {
@@ -26,24 +24,9 @@ export default function Tournament({ slug }: { slug: string }) {
     );
 
   return (
-    <div className="tournament-container">
-      <h1 className="tournament-title">{data.tournament.name}</h1>
-      <Table.Root className="tournament-table">
-        <Table.Header>
-          <Table.Row>
-            <Table.ColumnHeader>ID</Table.ColumnHeader>
-            <Table.ColumnHeader>Name</Table.ColumnHeader>
-          </Table.Row>
-        </Table.Header>
-        <Table.Body>
-          {data.tournament.events.map((event: { id: number; name: string }) => (
-            <Table.Row key={event.id}>
-              <Table.Cell>{event.id}</Table.Cell>
-              <Table.Cell>{event.name}</Table.Cell>
-            </Table.Row>
-          ))}
-        </Table.Body>
-      </Table.Root>
-    </div>
+    <TrTable
+      title={data.tournament.name}
+      events={data.tournament.events}
+    />
   );
 }

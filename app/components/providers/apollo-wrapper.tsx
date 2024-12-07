@@ -1,6 +1,6 @@
 "use client";
 
-import { HttpLink } from "@apollo/client";
+import { HttpLink, NormalizedCacheObject } from "@apollo/client";
 import {
   ApolloNextAppProvider,
   ApolloClient,
@@ -8,10 +8,14 @@ import {
 } from "@apollo/experimental-nextjs-app-support";
 
 // Function to create the Apollo Client
-function makeClient(): ApolloClient<any> {
+function makeClient(): ApolloClient<NormalizedCacheObject> {
+
   const httpLink = new HttpLink({
-    uri: "https://example.com/api/graphql", // Absolute URL for SSR
+    uri: "https://api.smash.gg/graphql", // Absolute URL for SSR
     fetchOptions: { cache: "no-store" }, // Disable caching
+    headers: {
+      Authorization: `Bearer ${process.env.START_GG_API_KEY}`, 
+    },
   });
 
   return new ApolloClient({
