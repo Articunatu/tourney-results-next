@@ -2,7 +2,6 @@
 
 import React from "react";
 import { Table } from "@chakra-ui/react";
-import "./TrTable.module.scss";
 
 interface Event {
   id: number;

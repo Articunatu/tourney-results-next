@@ -1,0 +1,31 @@
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 1rem;
+}
+
+.rankingTable {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 1rem;
+
+    th, td {
+        padding: 0.5rem;
+        text-align: center;
+        border: 1px solid #ddd;
+    }
+
+    th {
+        background-color: #f9f9f9;
+    }
+    }
+
+    .major {
+    background-color: #f4b400;
+    color: white;
+    }
+
+    .premier {
+    background-color: #0f9d58;
+    color: white;
+}

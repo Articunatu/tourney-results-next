@@ -1,13 +1,12 @@
 "use client";
 
-import TrButton from "../app/components/custom/tr-button"; 
 import { HStack } from "@chakra-ui/react"; 
-import React from "react";
+import TournamentResults from "./pages/tournament-results";
 
 const Home: React.FC = () => {
   return (
     <HStack align="center" justify="center" height="100vh">
-      <TrButton /> 
+      <TournamentResults slug="evo-2018"/> 
     </HStack>
   );
 };
