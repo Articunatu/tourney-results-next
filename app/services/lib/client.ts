@@ -1,18 +1,14 @@
-import { HttpLink } from "@apollo/client";
-import {
-  registerApolloClient,
-  ApolloClient,
-  InMemoryCache,
-} from "@apollo/experimental-nextjs-app-support";
+import { ApolloClient, InMemoryCache, HttpLink, NormalizedCacheObject } from "@apollo/client";
 
-export const { getClient, query, PreloadQuery } = registerApolloClient(() => {
+export const createApolloClient = (): ApolloClient<NormalizedCacheObject> => {
   return new ApolloClient({
-    cache: new InMemoryCache(),
+    ssrMode: typeof window === "undefined", // Enables SSR mode for server
     link: new HttpLink({
-      // This must be an absolute URL for SSR
-      uri: "http://example.com/api/graphql",
-      // Uncomment to disable result caching (not compatible with `force-static` rendering)
-      // fetchOptions: { cache: "no-store" },
+      uri: "https://api.smash.gg/graphql",
+      headers: {
+        Authorization: `Bearer ${process.env.NEXT_PUBLIC_START_GG_API_KEY}`,
+      },
     }),
+    cache: new InMemoryCache(),
   });
-});
+};

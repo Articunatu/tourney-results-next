@@ -1,5 +1,5 @@
 import { Provider } from "../chakra_ui/provider"
-import { ApolloWrapper } from "./components/providers/apollo-wrapper";
+import ApolloWrapper from "./components/providers/apollo-provider";
 
 export default function RootLayout({
   children,
