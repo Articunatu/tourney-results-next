@@ -1,5 +1,4 @@
 import { gql } from '@apollo/client';
-import { ApolloClient, NormalizedCacheObject } from '@apollo/client';
 
 export const GET_RESULTS_BY_PLAYER_ID = gql`
   query GetResultsByPlayerId($playerId: ID!, $perPage: Int = 10) {
