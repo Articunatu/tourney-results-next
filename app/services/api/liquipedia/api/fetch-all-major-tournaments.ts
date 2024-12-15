@@ -25,7 +25,6 @@
 
 //     res.status(200).json({ success: true, tournaments });
 //   } catch (error) {
-//     console.error("Error fetching Liquipedia data:", error);
 //     res.status(500).json({ success: false, error: "Failed to fetch tournaments." });
 //   }
 // }

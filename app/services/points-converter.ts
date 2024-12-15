@@ -4,7 +4,6 @@ export function convertPlacementToPoints(placement: number): number {
     return placementToPoints[placement];
   }
 
-  console.warn(`Placement ${placement} not found in the mapping.`);
   return 0; 
 }
 

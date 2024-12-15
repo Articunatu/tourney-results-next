@@ -10,7 +10,7 @@ export default function TournamentResults({ slug }: { slug: string }) {
     const { data, loading, error } = useQuery(GET_RESULTS_BY_TOURNAMENT_ID, {
         variables: { slug },
         context: {
-          uri: '/api/proxy-smash-graphql', // Use the internal API route
+            uri: '/api/proxy-smash-graphql',
         },
     });
 

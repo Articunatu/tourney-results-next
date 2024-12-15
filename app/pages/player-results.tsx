@@ -50,7 +50,6 @@ const PlayerResults: React.FC<PlayerResultsProps> = ({ playerId, perPage = 10 }:
         const player = data?.player;
 
         if (!player) {
-          console.warn('Player not found for the provided ID.');
           setResults([]);
           return;
         }
@@ -64,7 +63,6 @@ const PlayerResults: React.FC<PlayerResultsProps> = ({ playerId, perPage = 10 }:
 
         setResults(formattedResults);
       } catch (err) {
-        console.error('Error fetching results by player ID:', err);
         setError('Failed to fetch results.');
       } finally {
         setLoading(false);
