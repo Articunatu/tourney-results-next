@@ -1,5 +1,10 @@
+"use client";
+
 import { Provider } from "../chakra_ui/provider"
-import ApolloWrapper from "./components/providers/apollo-provider";
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+
+const queryClient = new QueryClient();
+
 
 export default function RootLayout({
   children,
@@ -9,10 +14,11 @@ export default function RootLayout({
   return (
     <html suppressHydrationWarning>
       <body>
+      <QueryClientProvider client={queryClient}>
         <Provider>
           {children}
-          <ApolloWrapper>{children}</ApolloWrapper>
         </Provider>
+        </QueryClientProvider>
       </body>
     </html>
   );

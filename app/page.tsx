@@ -1,17 +1,31 @@
 "use client";
+import { useQuery } from "@tanstack/react-query";
+import { getPokemons } from "../app/services/api";
+import { Box, Text, Spinner, Grid, GridItem } from "@chakra-ui/react";
 
-import { HStack } from "@chakra-ui/react";
-import TournamentResults from "./pages/tournament-results";
-import ApolloWrapper from "./components/providers/apollo-provider";
+const Page = () => {
+  const { data, isLoading, isError } = useQuery({
+    queryKey: ["pokemons"],
+    queryFn: () => getPokemons(10),
+  });
 
-const Home: React.FC = () => {
+  if (isLoading) return <Spinner size="xl" />;
+  if (isError) return <Text color="red.500">Error fetching data.</Text>;
+
   return (
-    <ApolloWrapper>
-      <HStack align="center" justify="center" height="100vh">
-        <TournamentResults slug="evo-2018" />
-      </HStack>
-    </ApolloWrapper>
+    <Box p={5}>
+      <Text fontSize="2xl" fontWeight="bold" mb={5}>
+        Pokémon List
+      </Text>
+      <Grid templateColumns="repeat(auto-fill, minmax(150px, 1fr))" gap={5}>
+        {data.results.map((pokemon: { name: string }, index: number) => (
+          <GridItem key={index} p={3} borderWidth={1} borderRadius="md" boxShadow="sm">
+            <Text>{pokemon.name}</Text>
+          </GridItem>
+        ))}
+      </Grid>
+    </Box>
   );
 };
 
-export default Home;
+export default Page;
