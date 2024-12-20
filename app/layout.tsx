@@ -1,8 +1,8 @@
 "use client";
 
-import { Provider } from "../chakra_ui/provider"
+import { Provider as ChakraProvider } from "../chakra_ui/provider"
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-
+import { TeamProvider } from "./hooks/team-context";
 const queryClient = new QueryClient();
 
 
@@ -14,10 +14,10 @@ export default function RootLayout({
   return (
     <html suppressHydrationWarning>
       <body>
-      <QueryClientProvider client={queryClient}>
-        <Provider>
-          {children}
-        </Provider>
+        <QueryClientProvider client={queryClient}>
+          <ChakraProvider>
+            <TeamProvider>{children}</TeamProvider>
+          </ChakraProvider>
         </QueryClientProvider>
       </body>
     </html>
